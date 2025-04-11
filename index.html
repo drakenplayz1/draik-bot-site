@@ -1,145 +1,123 @@
-<<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Draik Bot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-    header {
-      background-color: #08fff8;
-      padding: 20px;
-      text-align: center;
-      color: #000;
-      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
-    }
-    header h1 {
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .hero {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(145deg, #081e2e, #021216);
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #08fff8;
-    }
-    .hero p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #ccc;
-    }
-    .btn {
-      padding: 12px 25px;
-      background-color: #08fff8;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background-color: #00e6e0;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .feature-box {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid #08fff8;
-      box-shadow: 0 0 10px rgba(8, 255, 248, 0.2);
-    }
-    .feature-box h3 {
-      color: #08fff8;
-      margin-bottom: 10px;
-    }
-    .feature-box p {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 40px;
-    }
+    }body {
+  background-color: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  background: #080808;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px #08fff8;
+}
+
+.logo {
+  color: #08fff8;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 25px;
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #08fff8;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: radial-gradient(circle, rgba(8,255,248,0.1) 0%, transparent 100%);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #08fff8;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  animation: fadeIn 2s ease;
+}
+
+.btn {
+  background: #08fff8;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s;
+  animation: fadeInUp 1.5s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  background: #080808;
+  color: #888;
+  border-top: 1px solid #08fff8;
+  margin-top: 100px;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Draik Bot</h1>
-    <p>The Ultimate Discord Bot for Moderation, Utility & More</p>
-  </header>
-
-  <section class="hero">
-    <h2>Invite Draik to Your Server</h2>
-    <p>Manage your server effortlessly with auto-moderation, welcome systems, giveaways, and more — all in one bot!</p>
-    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8" target="_blank">Invite Now</a>
-  </section>
-
-  <section>
-    <h2 style="text-align:center; color:#08fff8;">Bot Features</h2>
-    <div class="features">
-      <div class="feature-box">
-        <h3>Moderation</h3>
-        <p>Kick, ban, timeout, purge, logs — keep your server clean and safe.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Welcome System</h3>
-        <p>Custom welcome messages, auto-role, and leave notifications to greet your members professionally.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Giveaways</h3>
-        <p>Host interactive giveaways with buttons, time limits, and auto-winner features.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Tickets</h3>
-        <p>Fully customizable ticket system with staff claims, auto-close, and transcript export.</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="text-align:center;">
-    <h2 style="color:#08fff8;">Need Help?</h2>
-    <p>Join our support server for help, updates, and suggestions.</p>
-    <a class="btn" href="https://discord.gg/YOUR_SUPPORT_SERVER" target="_blank">Join Support Server</a>
-  </section>
-
-  <footer>
-    © 2025 Draik Bot. All rights reserved.
+    <div class="logo">Draik</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#invite">Invite</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>  <section class="hero">
+    <h1>Meet Draik Bot</h1>
+    <p>The most advanced, customizable and stylish Discord bot designed to manage and grow your community.</p>
+    <a href="#" class="btn">Invite Now</a>
+  </section>  <footer>
+    &copy; 2025 Draik Bot. All rights reserved.
   </footer>
-
 </body>
 </html>
