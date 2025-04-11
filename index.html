@@ -16,39 +16,6 @@
       color: white;
       line-height: 1.6;
     }
-
-    /* Loader Styles */
-    #loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0a0a0a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s;
-    }
-    #loader.fade-out {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .loader-logo {
-      width: 100px;
-      height: 100px;
-      animation: pulse 2s infinite ease-in-out;
-      filter: drop-shadow(0 -6px 25px rgba(8, 255, 248, 0.5))
-              drop-shadow(0 -12px 30px rgba(8, 255, 248, 0.3));
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-
-    /* Rest of Page */
     header {
       text-align: center;
       padding: 2rem 1rem 3rem;
@@ -56,14 +23,7 @@
     .logo {
       height: 100px;
       margin-bottom: 1rem;
-      filter: drop-shadow(0 -5px 15px rgba(8, 255, 248, 0.3))
-              drop-shadow(0 -10px 20px rgba(8, 255, 248, 0.2));
-      transition: 0.3s ease;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 -6px 25px rgba(8, 255, 248, 0.5))
-              drop-shadow(0 -12px 30px rgba(8, 255, 248, 0.3));
+      filter: drop-shadow(0 -5px 15px #08fff8aa);
     }
     .title {
       background: linear-gradient(145deg, #08fff8, #00a8a3);
@@ -71,6 +31,7 @@
       -webkit-text-fill-color: transparent;
       font-size: 2.8rem;
       font-weight: bold;
+      animation: fadeIn 1s ease-in;
     }
     .container {
       max-width: 1100px;
@@ -114,14 +75,54 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animated Command Showcase */
+    .command-carousel-container {
+      overflow: hidden;
+      position: relative;
+      margin-top: 3rem;
+    }
+    .command-carousel {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 25s linear infinite;
+      gap: 1.5rem;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .command-card {
+      background-color: #121212;
+      border: 1px solid #08fff833;
+      border-radius: 12px;
+      padding: 1rem;
+      min-width: 240px;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(8, 255, 248, 0.08);
+      transition: 0.3s ease;
+    }
+    .command-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(8, 255, 248, 0.3);
+    }
+    .command-card h3 {
+      color: #08fff8;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .command-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
   </style>
 </head>
 <body>
-
-  <!-- Page Loader -->
-  <div id="loader">
-    <img src="logo.png" alt="Loading..." class="loader-logo" />
-  </div>
 
   <header>
     <img src="logo.png" alt="Draik Bot Logo" class="logo">
@@ -145,6 +146,27 @@
       <p>Claimable ticket system with categories, transcripts, and auto-close for inactive ones.</p>
     </div>
 
+    <!-- Animated Command Showcase -->
+    <h2 style="margin-top: 3rem;">Explore Commands</h2>
+    <div class="command-carousel-container">
+      <div class="command-carousel" id="carousel">
+        <div class="command-card"><h3>/welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>/giveaway</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>/ticket setup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>/botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>/userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>/ping</h3><p>Check bot response latency in ms.</p></div>
+
+        <!-- Duplicate for loop effect -->
+        <div class="command-card"><h3>/welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>/giveaway</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>/ticket setup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>/botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>/userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>/ping</h3><p>Check bot response latency in ms.</p></div>
+      </div>
+    </div>
+
     <div class="card" style="text-align: center;">
       <h2>Need Help?</h2>
       <p>Join our support server for instant help and updates.</p>
@@ -157,14 +179,5 @@
     &copy; 2025 Draik Bot. All rights reserved.
   </footer>
 
-  <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      loader.classList.add("fade-out");
-    });
-  </script>
-
-</body>
-</html>
 </body>
 </html>
