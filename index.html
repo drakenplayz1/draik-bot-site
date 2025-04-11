@@ -16,6 +16,39 @@
       color: white;
       line-height: 1.6;
     }
+
+    /* Loader Styles */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s;
+    }
+    #loader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-logo {
+      width: 100px;
+      height: 100px;
+      animation: pulse 2s infinite ease-in-out;
+      filter: drop-shadow(0 -6px 25px rgba(8, 255, 248, 0.5))
+              drop-shadow(0 -12px 30px rgba(8, 255, 248, 0.3));
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    /* Rest of Page */
     header {
       text-align: center;
       padding: 2rem 1rem 3rem;
@@ -25,7 +58,7 @@
       margin-bottom: 1rem;
       filter: drop-shadow(0 -5px 15px rgba(8, 255, 248, 0.3))
               drop-shadow(0 -10px 20px rgba(8, 255, 248, 0.2));
-      transition: transform 0.3s ease, filter 0.3s ease;
+      transition: 0.3s ease;
     }
     .logo:hover {
       transform: scale(1.05);
@@ -38,7 +71,6 @@
       -webkit-text-fill-color: transparent;
       font-size: 2.8rem;
       font-weight: bold;
-      animation: fadeIn 1s ease-in;
     }
     .container {
       max-width: 1100px;
@@ -82,13 +114,14 @@
       font-size: 0.9rem;
       color: #aaa;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
+
+  <!-- Page Loader -->
+  <div id="loader">
+    <img src="logo.png" alt="Loading..." class="loader-logo" />
+  </div>
 
   <header>
     <img src="logo.png" alt="Draik Bot Logo" class="logo">
@@ -124,5 +157,14 @@
     &copy; 2025 Draik Bot. All rights reserved.
   </footer>
 
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+    });
+  </script>
+
+</body>
+</html>
 </body>
 </html>
