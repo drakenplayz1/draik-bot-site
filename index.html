@@ -1,8 +1,9 @@
-<!DOCTYPE html><html lang="en">
+<<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Draik - Your Ultimate Discord Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Draik Bot</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -10,99 +11,135 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-    }body {
-  background: linear-gradient(135deg, #1f1f2f, #2c3e50);
-  color: white;
-  line-height: 1.6;
-}
-
-header {
-  padding: 2rem;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.1rem;
-  color: #ccc;
-}
-
-.buttons {
-  margin-top: 1.5rem;
-}
-
-.buttons a {
-  text-decoration: none;
-  margin: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  background: #00b894;
-  color: white;
-  border-radius: 30px;
-  transition: all 0.3s ease-in-out;
-}
-
-.buttons a:hover {
-  background: #00cec9;
-  transform: scale(1.05);
-}
-
-section {
-  padding: 3rem 1.5rem;
-  max-width: 800px;
-  margin: auto;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #00cec9;
-  display: inline-block;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }
+    header {
+      background-color: #08fff8;
+      padding: 20px;
+      text-align: center;
+      color: #000;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(145deg, #081e2e, #021216);
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #08fff8;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #ccc;
+    }
+    .btn {
+      padding: 12px 25px;
+      background-color: #08fff8;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #00e6e0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .feature-box {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #08fff8;
+      box-shadow: 0 0 10px rgba(8, 255, 248, 0.2);
+    }
+    .feature-box h3 {
+      color: #08fff8;
+      margin-bottom: 10px;
+    }
+    .feature-box p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <!-- Placeholder for Logo -->
     <h1>Draik Bot</h1>
-    <p>Smart. Secure. Powerful. Your all-in-one Discord companion.</p>
-    <div class="buttons">
-      <a href="#">Invite Bot</a>
-      <a href="#">Join Support</a>
+    <p>The Ultimate Discord Bot for Moderation, Utility & More</p>
+  </header>
+
+  <section class="hero">
+    <h2>Invite Draik to Your Server</h2>
+    <p>Manage your server effortlessly with auto-moderation, welcome systems, giveaways, and more — all in one bot!</p>
+    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8" target="_blank">Invite Now</a>
+  </section>
+
+  <section>
+    <h2 style="text-align:center; color:#08fff8;">Bot Features</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Moderation</h3>
+        <p>Kick, ban, timeout, purge, logs — keep your server clean and safe.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Welcome System</h3>
+        <p>Custom welcome messages, auto-role, and leave notifications to greet your members professionally.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Giveaways</h3>
+        <p>Host interactive giveaways with buttons, time limits, and auto-winner features.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Tickets</h3>
+        <p>Fully customizable ticket system with staff claims, auto-close, and transcript export.</p>
+      </div>
     </div>
-  </header>  <section>
-    <h2>Why Choose Draik?</h2>
-    <p>Draik is designed to elevate your Discord server experience. Whether it's moderation, automation, fun, or advanced utilities — Draik does it all. With blazing-fast performance, real-time customization, and professional support, it's the perfect bot for both casual and community servers.</p>
-  </section>  <section>
-    <h2>Features</h2>
-    <ul>
-      <li>Moderation commands with logging</li>
-      <li>Welcome and farewell systems</li>
-      <li>Custom ticketing and support tools</li>
-      <li>Giveaway management</li>
-      <li>Interactive embeds and buttons</li>
-      <li>Fast updates and responsive support</li>
-    </ul>
-  </section>  <section>
-    <h2>Privacy Policy</h2>
-    <p><a href="#" style="color: #00cec9; text-decoration: underline;">Read our Privacy Policy</a></p>
-  </section>  <section>
-    <h2>Terms of Service</h2>
-    <p><a href="#" style="color: #00cec9; text-decoration: underline;">Read our Terms of Service</a></p>
-  </section>  <footer>
-    &copy; 2025 Draik Bot. All rights reserved.
+  </section>
+
+  <section style="text-align:center;">
+    <h2 style="color:#08fff8;">Need Help?</h2>
+    <p>Join our support server for help, updates, and suggestions.</p>
+    <a class="btn" href="https://discord.gg/YOUR_SUPPORT_SERVER" target="_blank">Join Support Server</a>
+  </section>
+
+  <footer>
+    © 2025 Draik Bot. All rights reserved.
   </footer>
+
 </body>
 </html>
