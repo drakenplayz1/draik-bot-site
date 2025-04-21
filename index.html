@@ -1,133 +1,164 @@
 <!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Draik - Discord Bot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0f0f0f;
-      color: #08fff8;
-      font-family: 'Orbitron', sans-serif;
-      scroll-behavior: smooth;
-    }
-    header {
-      height: 100vh;
-      background: #0f0f0f;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 20px;
-    }
-    header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      color: #ccc;
-      font-size: 1.2rem;
-    }
-    .buttons {
-      margin-top: 30px;
-    }
-    .buttons a {
-      text-decoration: none;
-      color: #0f0f0f;
-      background: #08fff8;
-      padding: 12px 25px;
-      margin: 0 10px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .buttons a:hover {
-      background: #06d4d0;
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-in-out;
-    }
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .commands {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .cmd-box {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #08fff822;
-      text-align: center;
-    }
-    .cmd-box code {
-      font-size: 1.1rem;
-      color: #08fff8;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="logo.png" alt="Draik Logo">
-    <h1>Draik</h1>
-    <p>Powerful multi-purpose bot with advanced systems for your server</p>
-    <div class="buttons">
-      <a href="#commands">Commands</a>
-      <a href="#invite">Invite</a>
-    </div>
-  </header>  <section id="commands">
-    <h2>Key Commands</h2>
-    <div class="commands">
-      <div class="cmd-box"><code>&ping</code><br><span>Check bot latency</span></div>
-      <div class="cmd-box"><code>&help</code><br><span>View all available commands</span></div>
-      <div class="cmd-box"><code>&an enable</code><br><span>Enable anti-nuke protection</span></div>
-      <div class="cmd-box"><code>&welcome</code><br><span>Setup welcome message</span></div>
-      <div class="cmd-box"><code>&ticketsetup</code><br><span>Configure ticket panel</span></div>
-      <div class="cmd-box"><code>&j2csetup</code><br><span>Join to Create VC setup</span></div>
-    </div>
-  </section>  <section id="invite">
-    <h2>Get Draik Now</h2>
-    <p style="text-align:center; margin-bottom: 30px;">Join our support server or invite Draik to your server</p>
-    <div class="buttons" style="text-align:center;">
-      <a href="#">Invite Draik</a>
-      <a href="#">Support Server</a>
-    </div>
-  </section>  <footer>
-    <p>© 2025 Draik Bot | Built for Discord communities</p>
-  </footer>  <script>
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 500;
-        if (top > offset) sec.classList.add('show');
-      });
-    });
-  </script></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Chakra Petch', sans-serif;
+        background: #0a0a0a;
+        color: #08fff8;
+        overflow-x: hidden;
+      }
+      header {
+        padding: 60px 0 30px;
+        text-align: center;
+        background: radial-gradient(circle, rgba(8,255,248,0.2) 0%, rgba(10,10,10,1) 100%);
+        box-shadow: 0 0 40px #08fff8aa, inset 0 0 60px #08fff844;
+        animation: fadeIn 1s ease-in-out;
+      }
+      .logo {
+        width: 120px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 15px #08fff8);
+      }
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px #08fff8, 0 0 20px #08fff8;
+        animation: glowFade 3s infinite alternate;
+      }
+      .desc {
+        color: #ccc;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 6px #08fff888;
+      }
+      .buttons a {
+        background: #08fff8;
+        color: #0a0a0a;
+        padding: 12px 24px;
+        margin: 0 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 0 15px #08fff8cc;
+      }
+      .buttons a:hover {
+        background: #05bebe;
+        box-shadow: 0 0 25px #08fff8;
+      }
+      .section {
+        padding: 80px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: auto;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      .section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+        text-shadow: 0 0 12px #08fff8;
+      }
+      .commands, .devs, .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+      .command, .dev, .feature {
+        background: rgba(19, 19, 19, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 0 25px #08fff888, inset 0 0 10px #08fff822;
+        transition: transform 0.3s, box-shadow 0.3s;
+        backdrop-filter: blur(10px);
+      }
+      .command:hover, .dev:hover, .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px #08fff8dd, inset 0 0 15px #08fff844;
+      }
+      .command code {
+        color: #08fff8;
+        font-size: 1.1rem;
+      }
+      footer {
+        background: #000;
+        text-align: center;
+        padding: 30px;
+        color: #666;
+        margin-top: 50px;
+        box-shadow: 0 -10px 30px #08fff822;
+      }
+      @keyframes glowFade {
+        0% {
+          text-shadow: 0 0 10px #08fff8, 0 0 20px #08fff8;
+        }
+        100% {
+          text-shadow: 0 0 20px #08fff8, 0 0 40px #08fff8;
+        }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Draik Logo" class="logo" />
+      <h1>Draik</h1>
+      <p class="desc">The ultimate Discord bot with powerful security and utility systems.</p>
+      <div class="buttons">
+        <a href="#">Invite</a>
+        <a href="#">Support Server</a>
+      </div>
+    </header><section class="section">
+  <h2>Commands</h2>
+  <div class="commands">
+    <div class="command"><code>&ping</code><br />Check latency</div>
+    <div class="command"><code>&help</code><br />All commands list</div>
+    <div class="command"><code>&an enable</code><br />Enable Anti-Nuke</div>
+    <div class="command"><code>&welcome</code><br />Welcome system</div>
+    <div class="command"><code>&ticketsetup</code><br />Setup Tickets</div>
+    <div class="command"><code>&j2csetup</code><br />Join to Create VC</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="features">
+    <div class="feature">Anti-Nuke Protection</div>
+    <div class="feature">Join to Create VC</div>
+    <div class="feature">Ticket System</div>
+    <div class="feature">Welcome Messages</div>
+    <div class="feature">Role & Category Auto Setup</div>
+    <div class="feature">Fast & Reliable</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Developers</h2>
+  <div class="devs">
+    <div class="dev"><strong>Owner:</strong><br />Draken PlayZ</div>
+    <div class="dev"><strong>Developer:</strong><br />YourNameHere</div>
+    <div class="dev"><strong>UI/UX:</strong><br />AnotherNameHere</div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Draik Bot | Crafted for Discord by dedicated developers.
+</footer>
+
+  </body>
 </html>
