@@ -1,72 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Draik Bot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: white;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+    }
+    .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 -5px 15px #08fff8aa);
+    }
+    .title {
+      background: linear-gradient(145deg, #08fff8, #00a8a3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background-color: #111;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 20px rgba(8, 255, 248, 0.1);
+      border: 1px solid #08fff833;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 0 30px #08fff855;
+      transform: scale(1.03);
+    }
+    h2 {
+      color: #08fff8;
+      margin-bottom: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #08fff8;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #00c2bd;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animated Command Showcase */
+    .command-carousel-container {
+      overflow: hidden;
+      position: relative;
+      margin-top: 3rem;
+    }
+    .command-carousel {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 25s linear infinite;
+      gap: 1.5rem;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .command-card {
+      background-color: #121212;
+      border: 1px solid #08fff833;
+      border-radius: 12px;
+      padding: 1rem;
+      min-width: 240px;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(8, 255, 248, 0.08);
+      transition: 0.3s ease;
+    }
+    .command-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(8, 255, 248, 0.3);
+    }
+    .command-card h3 {
+      color: #08fff8;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .command-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+  </style>
 </head>
 <body>
-  <video autoplay loop muted plays-inline class="back-vid">
-    <source src="images/galaxy.mp4" type="video/mp4">
-  </video>
-  <section class="main-section">
-    <nav>
-      <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Pro</span>Coder09</h1>
-      <ul>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a class="active" href="#">Home </a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="#">About</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="#">Projects</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="#">skils</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="#">Content</a></li>
-      </ul>
-    </nav>
 
-    <div class="hero">
-      <div class="hero-info">
-        <h1 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">Hi, I'm Procoder09</h1>
-        <h2 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="900">I'm a  Developer</h2>
-        <p data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas ducimus recusandae architecto at iste quisquam rerum reiciendis quo laudantium.</p>
-        <div class="Buttons">
-          <button class="btn" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="1100">Hire me</button> 
-          <ul class="ul-icons">
-            <li><a href="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200"><i class='bx bxl-github'></i></a></li>
-            <li><a href="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300"><i class='bx bxl-twitter'></i></a></li>
-            <li><a href="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400" ><i class='bx bxl-youtube'></i></a></li>
-            <li><a href="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1500"><i class='bx bxl-facebook-circle'></i></a></li>
-          </ul>
-        </div>
-      </div>
+  <header>
+    <img src="logo.png" alt="Draik Bot Logo" class="logo">
+    <div class="title">Meet Draik Bot</div>
+  </header>
 
-      <div class="hero-img" data-aos="zoom-in-left" data-aos-duration="2500">
-        <img src="images/man1.png" alt="person-img" >
+  <div class="container">
+
+    <div class="card">
+      <h2>Auto Welcome</h2>
+      <p>Welcome new members with style using Draik’s auto greeting system.</p>
+    </div>
+
+    <div class="card">
+      <h2>Giveaways</h2>
+      <p>Run timed giveaways with auto-winner selection, buttons, and real-time tracking.</p>
+    </div>
+
+    <div class="card">
+      <h2>Tickets</h2>
+      <p>Claimable ticket system with categories, transcripts, and auto-close for inactive ones.</p>
+    </div>
+
+    <!-- Animated Command Showcase -->
+    <h2 style="margin-top: 3rem;">Explore Commands</h2>
+    <div class="command-carousel-container">
+      <div class="command-carousel" id="carousel">
+        <div class="command-card"><h3>&welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>&gstart</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>&ticketsetup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>&botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>&userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>&ping</h3><p>Check bot response latency in ms.</p></div>
+
+        <!-- Duplicate for loop effect -->
+        <div class="command-card"><h3>&welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>&gstart</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>&ticket setup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>&botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>&userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>&ping</h3><p>Check bot response latency in ms.</p></div>
       </div>
     </div>
 
-    <div class="info-sec">
-      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1600">
-        <h1>4+</h1>
-        <p>Years of <br> Experience</p>
-      </div>
-      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1700">
-        <h1>7+</h1>
-        <p>Technical <br> Skills</p>
-      </div>
-      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1800">
-        <h1>50+</h1>
-        <p>Projects <br> Completed</p>
-      </div>
-      <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1900">
-        <h1>80+</h1>
-        <p>Satisfied <br> Clients</p>
-      </div>
+    <div class="card" style="text-align: center;">
+      <h2>Need Help?</h2>
+      <p>Join our support server for instant help and updates.</p>
+      <a class="btn" href="https://discord.gg/your-support-server" target="_blank">Join Support Server</a>
     </div>
-  </section>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Draik Bot. All rights reserved.
+  </footer>
+
 </body>
 </html>
