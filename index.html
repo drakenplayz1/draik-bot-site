@@ -1,196 +1,184 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Graphic Design Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Draik Bot</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #000;
-      scroll-behavior: smooth;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
     }
-    h1, h2, h3 {
-      font-weight: 700;
+    body {
+      background-color: #0a0a0a;
+      color: white;
+      line-height: 1.6;
     }
-    section {
-      padding: 60px 20px;
-    }
-    .hero {
+    header {
       text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(to right, #08fff8, #fff);
+      padding: 2rem 1rem 3rem;
     }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 -5px 15px #08fff8aa);
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .cta-btn {
-      background-color: #08fff8;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1rem;
+    .title {
+      background: linear-gradient(145deg, #08fff8, #00a8a3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
+      animation: fadeIn 1s ease-in;
     }
-    .gallery-container {
-      overflow: hidden;
-    }
-    .gallery-slider {
-      display: flex;
-      gap: 20px;
-      transition: transform 0.5s ease-in-out;
-    }
-    .gallery-slider img {
-      height: 180px;
-      border-radius: 12px;
-    }
-    .about, .why-choose, .stats, .testimonials, .faq, .footer {
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
     }
     .card {
-      padding: 20px;
-      border: 2px solid #08fff8;
-      border-radius: 12px;
-      transition: transform 0.3s;
+      background-color: #111;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 20px rgba(8, 255, 248, 0.1);
+      border: 1px solid #08fff833;
+      transition: all 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 0 30px #08fff855;
+      transform: scale(1.03);
     }
-    .stats div {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+    h2 {
+      color: #08fff8;
+      margin-bottom: 0.5rem;
     }
-    .testimonial-card {
-      background: #f0f0f0;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .faq-item {
-      margin: 10px 0;
-    }
-    .faq-item button {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 10px;
-      cursor: pointer;
-      border-bottom: 1px solid #ccc;
-    }
-    .faq-item .answer {
-      display: none;
-      padding: 10px;
-      font-size: 0.95rem;
-    }
-    .footer {
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
       background-color: #08fff8;
       color: #000;
-      padding: 40px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: 0.3s ease;
     }
-    .socials img {
-      height: 30px;
-      margin: 0 10px;
+    .btn:hover {
+      background-color: #00c2bd;
     }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animated Command Showcase */
+    .command-carousel-container {
+      overflow: hidden;
+      position: relative;
+      margin-top: 3rem;
+    }
+    .command-carousel {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 25s linear infinite;
+      gap: 1.5rem;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .command-card {
+      background-color: #121212;
+      border: 1px solid #08fff833;
+      border-radius: 12px;
+      padding: 1rem;
+      min-width: 240px;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(8, 255, 248, 0.08);
+      transition: 0.3s ease;
+    }
+    .command-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(8, 255, 248, 0.3);
+    }
+    .command-card h3 {
+      color: #08fff8;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .command-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
   </style>
 </head>
 <body>
-  <section class="hero">
-    <h1>Designing Brands That Speak</h1>
-    <p>Graphic design that connects, converts, and stands out.</p>
-    <button class="cta-btn">Explore My Work</button>
-  </section>  <section id="gallery">
-    <h2>My Work</h2>
-    <div class="gallery-container">
-      <div class="gallery-slider" id="slider">
-        <img src="https://i.imgur.com/D8JP0tX.jpg" alt="Design 1">
-        <img src="https://i.imgur.com/dhJmWr3.jpg" alt="Design 2">
-        <img src="https://i.imgur.com/ljYzswe.jpg" alt="Design 3">
-        <img src="https://i.imgur.com/FkUNsah.jpg" alt="Design 4">
+
+  <header>
+    <img src="logo.png" alt="Draik Bot Logo" class="logo">
+    <div class="title">Meet Draik Bot</div>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Auto Welcome</h2>
+      <p>Welcome new members with style using Draik’s auto greeting system.</p>
+    </div>
+
+    <div class="card">
+      <h2>Giveaways</h2>
+      <p>Run timed giveaways with auto-winner selection, buttons, and real-time tracking.</p>
+    </div>
+
+    <div class="card">
+      <h2>Tickets</h2>
+      <p>Claimable ticket system with categories, transcripts, and auto-close for inactive ones.</p>
+    </div>
+
+    <!-- Animated Command Showcase -->
+    <h2 style="margin-top: 3rem;">Explore Commands</h2>
+    <div class="command-carousel-container">
+      <div class="command-carousel" id="carousel">
+        <div class="command-card"><h3>&welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>&gstart</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>&ticketsetup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>&botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>&userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>&ping</h3><p>Check bot response latency in ms.</p></div>
+
+        <!-- Duplicate for loop effect -->
+        <div class="command-card"><h3>&welcome</h3><p>Set welcome message for new members.</p></div>
+        <div class="command-card"><h3>&gstart</h3><p>Start a giveaway with buttons and auto-end.</p></div>
+        <div class="command-card"><h3>&ticket setup</h3><p>Setup a category-based ticket panel.</p></div>
+        <div class="command-card"><h3>&botinfo</h3><p>Get Draik’s stats, uptime, and RAM usage.</p></div>
+        <div class="command-card"><h3>&userinfo</h3><p>See user info like join date, badges, and roles.</p></div>
+        <div class="command-card"><h3>&ping</h3><p>Check bot response latency in ms.</p></div>
       </div>
     </div>
-  </section>  <section class="about">
-    <h2>About Me</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.</p>
-  </section>  <section class="why-choose">
-    <h2>Why Choose Me?</h2>
-    <div class="grid">
-      <div class="card">Fast Delivery</div>
-      <div class="card">Creative Concepts</div>
-      <div class="card">Client Satisfaction</div>
-      <div class="card">High Quality</div>
-      <div class="card">Great Communication</div>
-      <div class="card">Professionalism</div>
-    </div>
-  </section>  <section class="stats">
-    <h2>Performance Metrics</h2>
-    <div class="grid">
-      <div><strong>200+</strong> Projects</div>
-      <div><strong>3+</strong> Years Experience</div>
-      <div><strong>24.2M+</strong> Impressions</div>
-    </div>
-  </section>  <section class="testimonials">
-    <h2>What Clients Say</h2>
-    <div class="grid">
-      <div class="testimonial-card">“Amazing work, will hire again!” - Client A</div>
-      <div class="testimonial-card">“Highly recommended designer.” - Client B</div>
-      <div class="testimonial-card">“Great communication and quality.” - Client C</div>
-    </div>
-  </section>  <section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">\      <button onclick="toggleAnswer(this)">+ What services do you offer?</button>
-      <div class="answer">I offer brand design, thumbnails, banners, and social media kits.</div>
-    </div>
-    <div class="faq-item">
-      <button onclick="toggleAnswer(this)">+ What is your delivery time?</button>
-      <div class="answer">Usually within 2–3 days depending on the project scope.</div>
-    </div>
-  </section>  <footer class="footer">
-    <h2>Let’s Create Together!</h2>
-    <p>Contact me via social or email</p>
-    <div class="socials">
-      <a href="#"><img src="instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="behance.png" alt="Behance"></a>
-      <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
-    </div>
-    <p>&copy; 2025 | Made with Tempo AI</p>
-  </footer>  <script>
-    function toggleAnswer(button) {
-      const answer = button.nextElementSibling;
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-        button.textContent = "+ " + button.textContent.slice(2);
-      } else {
-        answer.style.display = "block";
-        button.textContent = "- " + button.textContent.slice(2);
-      }
-    }
 
-    const slider = document.getElementById('slider');
-    let scrollAmount = 0;
-    function autoSlide() {
-      if (scrollAmount <= slider.scrollWidth - slider.clientWidth) {
-        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-        scrollAmount += 200;
-      } else {
-        scrollAmount = 0;
-        slider.scrollTo({ left: 0, behavior: 'smooth' });
-      }
-    }
-    setInterval(autoSlide, 3000);
-  </script></body>
+    <div class="card" style="text-align: center;">
+      <h2>Need Help?</h2>
+      <p>Join our support server for instant help and updates.</p>
+      <a class="btn" href="https://discord.gg/your-support-server" target="_blank">Join Support Server</a>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Draik Bot. All rights reserved.
+  </footer>
+
+</body>
+</html>
 </html>
